@@ -1,0 +1,333 @@
+/*En tête du site police et dimension*/
+*
+{
+
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-color:#fff;
+
+}
+header{
+    z-index: 10;
+    background-color: #CA4444;
+    height: 100px;
+    width: 100%;
+    top : 0;
+    display : flex; 
+    justify-content: space-around;
+    align-items:center;
+
+}
+
+ul
+{
+    display: flex;
+    list-style: none;  
+}
+
+li a {
+    padding: 20px 30px;
+    color: white;
+    text-decoration: none;
+}
+li a:hover{
+  box-shadow: 0 0 10px #000;
+  background: #211818;
+}
+.logo img{
+  width: 100px;
+ 
+}
+h3{
+      color: black;
+}
+
+
+
+/* -------------------- 3- Diaporama -------------------- */
+#diaporama
+{
+    
+    position: relative;
+    width: 100%;
+    margin: 2% auto; /* Centre le diaporama */
+   
+}
+
+
+#caroussel
+{
+    background: black;
+    border: 2px solid black; /*???*/
+    position: relative;
+    width: 90%;
+    height: 50vh; /* Une hauteur en vh permet de garder le diaporama en bonne hauteur sur chaque résolution */
+    margin: 0 auto;
+    
+}
+
+#caroussel figure
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: all 2s;
+    overflow: hidden;
+}
+
+#caroussel figure + figure
+{
+    opacity: 0; /* Fait disparaitre toutes les images sauf la première */
+}
+
+#caroussel figure img
+{
+        position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    max-height: 105%;
+
+}
+
+#caroussel figcaption
+{
+    position: absolute;
+    left: 0; right: 0; /* La légende occupera toute la largeur de l'image */
+    background-color: rgba(0, 0, 0, 0.5); /* Fond noir transparent */
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+}
+
+
+/*-- Placement des différentes légendes sur son image --*/
+#caroussel figure figcaption
+{
+    top: 20%; 
+}
+
+
+#diaporama #bouttonGauche
+{
+    position: absolute;
+    top: 45%; /* Placement des boutons au centre du diaporama */
+    z-index: 2;
+     display : inline-block;
+    background-color: rgba(0, 0, 0, 0.8); /* Couleur de fond des boutons */
+    border: none;
+    color: #fff;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#pause{
+   z-index: 1;
+   position: absolute;
+   top: 100%;
+   left:50%;
+   cursor: pointer;
+   height: 30px;
+    width: 30px;
+    
+
+}
+
+#diaporama #bouttonDroit
+{
+    position: absolute;
+    top: 45%; /* Placement des boutons au centre du diaporama */
+    display : inline-block;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.8); /* Couleur de fond des boutons */
+    border: none;
+    color: #fff;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+    
+
+
+#bouttonDroit
+{
+    z-index: 2;
+    right: 0;
+}
+
+#bouttonGauche
+{
+    z-index: 2;
+    
+}
+
+
+
+/*-_-_--_-_-_-_ Map -_-_-_-_-_-__--_-__-_-_-*/
+#map {
+    width: 100%;
+    height: 50vh;
+    margin: 0 auto;
+    margin-top: 2%;
+    }
+.size_map{
+      width: 80%;
+    margin: 0 auto;
+}
+    
+h2{
+  position: relative;
+  top: 10px;
+    text-align: center;
+}
+
+
+
+/*-_-_--_-_-_--_-_Formulaire de réservation-_--_-_-_--_-_-_-_--_*/
+#infosForm{
+    background-color: #CA4444;
+    /*Fait*/
+    padding: 20px; padding-right: 30px;
+    width: 300px;
+    height: 70%;
+    margin: auto;
+    margin-top: 2%;
+    width: 50%;
+    border-radius: 1%;
+}
+form{
+  color: cornsilk;
+}
+
+.location{
+    margin: 5% auto;
+    
+}
+
+#boutonReservation{
+   text-align: center;
+   box-shadow: 0 0 10px #000;
+   cursor: pointer;
+}
+/* --------------------  Canvas -------------------- */
+#containerCanvas
+{
+    margin: 20px auto;
+  max-width: 380px;
+      
+}
+
+#containerCanvas p
+{
+    text-align: center;
+}
+#boutonValider{
+   position: relative;
+   left: 35%;
+   width: 30%;
+   box-shadow: 0 0 10px #000;
+   cursor: pointer;
+}
+#boutonEffacer{
+  box-shadow: 0 0 10px #000;
+   cursor: pointer;
+   width: 30%;
+}
+
+#signature
+{
+    width: 100%;
+    display: block;
+    margin: 10px auto 5px auto;
+    background-color: white;
+    border-radius: 20px;
+}
+
+
+/*-_-_-_-_-_Compteur-_-_--_-__--_-*_*/
+#sectionLocation{
+   margin-top: 2%;
+   border: 2px ridge black;
+   background: #CA4444 
+;
+}
+
+#messageLocation, #messageFinLocation
+{
+    text-align: center;
+    margin: 10px 0;
+}
+
+#compteur
+{ /* Compte Ã  rebours */
+    font-size: 2em;
+    font-weight: 400;
+    color: black;
+    margin: 20px 0;
+}
+
+
+#annulation
+{ /* Bouton d'annulation du contrat de location */
+    width: 200px;
+    padding: 5px;
+    font-weight: 700;
+}
+
+#annulation:hover
+{
+    box-shadow: 0 0 10px #000; /*Ombrage noir au survol*/
+}
+
+.titre_location{
+   text-align: center;
+}
+#sectionLocation{
+  display: none;
+}
+
+
+
+/*-_-_-_-_-__-Média Queries_--_-_-_-_-_-_-_-*/
+@media screen and (min-width: 600px) /*Adaptation du canvas*/
+{
+    
+   #containerCanvas
+    {
+      width: 100%;
+    }
+}
+
+/*Adaptation du diapo sur mobile*/
+@media screen and (max-width: 600px) /*Adaptation du canvas*/
+{
+    
+   #caroussel
+    {
+      height: 20vh;
+    }
+    
+    #caroussel figcaption
+    {
+      font-size: 15px;
+    }
+    #infosForm{
+      width: 70%;
+    }
+}
+
+
+
+
+

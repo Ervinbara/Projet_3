@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<title>Location de Vélo</title>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<!-- <link href="https://fonts.googleapis.com/css?family=NotableRoboto" rel="stylesheet">-->
+<link rel="stylesheet" href="projet_3.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<meta name=viewport content="width=device-width, initial-scale=1">
+
+<script
+src="https://code.jquery.com/jquery-3.3.1.js"
+integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+crossorigin="anonymous"></script>
+
+<!--MAPS-->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+crossorigin=""/>
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+crossorigin=""></script>
+
+</head>
+
+<body>
+<header>
+  <figure class="logo"> 
+    <a><img src="images/bicycle.png"  alt="Logo Vélo" /></a>
+  </figure>
+  <ul>
+    <li><a href="#map">Map</a></li>
+    <li><a href="#infosForm">Réservation</a></li>
+  </ul> 
+</header>
+
+<!-- Diaporama -->
+<section> 
+  <div id="diaporama">
+      <button id="bouttonGauche"><i class="fas fa-chevron-left fa-2x"></i></button>
+      <button id="pause"><i class="fas fa-pause"></i></button>
+    <div id="caroussel">
+    <figure class="item">
+      <img src="images/diapo1.jpg">
+      <figcaption>
+        Louez un vélo ! 
+      </figcaption>
+    </figure>
+  
+    <figure class="item">
+      <img src="images/diapo2.png">
+      <figcaption>
+        Choisissez une station !
+      </figcaption>
+    </figure> 
+  
+    <figure class="item">
+      <img src="images/diapo3.png">
+      <figcaption>
+         Fournissez vos coordonnées et une signature !
+      </figcaption>
+    </figure> 
+  
+    <figure class="item">
+      <img src="images/diapo4.png">
+      <figcaption class ="diapo_quatre">
+         En bas de page s'affichera votre réservation !
+      </figcaption>
+    </figure>
+  
+    <figure class="item">
+      <img src="images/diapo5.jpg">
+      <figcaption>
+        3 2 1 Roulez !
+      </figcaption>
+    </figure> 
+  </div> 
+    <button id="bouttonDroit"><i class="fas fa-chevron-right fa-2x"></i></button> 
+</div>
+</section>
+
+
+<section class="location">
+
+<div class="size_map">
+  <h2>Location d'un vélo</h2>
+  <div id="map"></div>
+</div>              
+
+
+
+<div id="infosForm">
+
+<h3>Informations sur la station :</h3><br>
+  <div>Adresse : <span id="nomStation"></span></div><br>
+  <div>Etat : <span id="etatStation"></span></div><br>
+  <div>Vélos disponibles : <span id="veloDispo"></span></div><br>
+
+  <form method='post' action=''>
+    <label for="nom">Entrez votre nom : </label><br>
+    <input type='text' name="nom" id="nom" required><br>
+    <span id='nom_manquant'></span><br>
+    <label for="nom">Entrez votre prénom : </label><br>
+    <input type='text' name="prenom" id="prenom" required ><br>
+    <span id='prenom_manquant'></span><br>
+  </form>
+
+    <input id="boutonReservation" type="button" value="Réserver"/> <!-- Bouton de réservation -->
+    <div id="containerCanvas">
+        <p>Signature</p>
+        <canvas id="signature" width="380" height="200"></canvas> <!-- Canvas -->
+        <!-- Bouton du canvas -->
+        <div id="boutonCanvas">
+        <input id="boutonValider" type="button" value="Valider"/>
+        <p><button id="boutonEffacer">Effacer</button></p> <!-- Bouton Effacer -->
+      </div>
+    </div>
+</div>
+</section>
+
+
+<section id="sectionLocation">   
+  <div id="annulationReservation" class="message">
+<!--Annulation de la réservation -->
+  </div>
+    <h3 class="titre_location">Location en cours</h3>
+      <div id="messageLocation">
+        <p>
+          Vous venez de réserver 1 vélo à la station : <strong> </strong><br>
+          Votre réservation expirera dans : <br>
+        </p>
+        <div id="compteur"></div> 
+          <p><button id="annulation">Annuler la réservation</button></p>  
+      </div> 
+</section>
+
+
+<script src="diapo.js"></script> <!-- Diaporama -->
+<script src="canvas.js"></script> <!-- Canvas -->
+<script src="maps.js"></script> <!-- Maps-->
+<script src="compteur.js"></script> <!-- Partie réservarion et compte à rebour -->
+<script src="formulaire.js"></script> <!-- Fonction liée au formulaire -->
+<script src="local.js"></script> <!-- Stockage du nom et prénom -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> <!-- Jquery -->
+
+</body>
+
+</html>
